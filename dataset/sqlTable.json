@@ -1,0 +1,66 @@
+{
+	"name": "sqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_linked_connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "product_id",
+				"type": "varchar"
+			},
+			{
+				"name": "product_group",
+				"type": "varchar"
+			},
+			{
+				"name": "product_category",
+				"type": "varchar"
+			},
+			{
+				"name": "product_type",
+				"type": "varchar"
+			},
+			{
+				"name": "product",
+				"type": "varchar"
+			},
+			{
+				"name": "product_description",
+				"type": "varchar"
+			},
+			{
+				"name": "unit_of_measure",
+				"type": "varchar"
+			},
+			{
+				"name": "current_wholesale_price",
+				"type": "varchar"
+			},
+			{
+				"name": "current_retail_price",
+				"type": "varchar"
+			},
+			{
+				"name": "tax_exempt_yn",
+				"type": "varchar"
+			},
+			{
+				"name": "promo_yn",
+				"type": "varchar"
+			},
+			{
+				"name": "new_product_yn",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "products"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

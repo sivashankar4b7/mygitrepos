@@ -1,0 +1,9 @@
+{
+	"name": "ssrdf01",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "eb464677-233d-4d48-81b6-429f6cbc43a3",
+		"tenantId": "22fe3585-0f91-42e3-86fd-86ad3c35e09f"
+	}
+}

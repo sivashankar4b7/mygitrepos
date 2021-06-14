@@ -1,0 +1,209 @@
+{
+	"name": "BlobToSQL_PipeLine",
+	"properties": {
+		"description": "Pipeline",
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "product_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "product_group",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product_group",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "product_category",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product_category",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "product_type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product_type",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "product",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "product_description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "product_description",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "unit_of_measure",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "unit_of_measure",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "current_wholesale_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "current_wholesale_price",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "current_retail_price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "current_retail_price",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "tax_exempt_yn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tax_exempt_yn",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "promo_yn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "promo_yn",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "new_product_yn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "new_product_yn",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "productsBlob",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "sqlTable",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [
+			"blobpipeline"
+		],
+		"lastPublishTime": "2021-06-14T14:16:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
